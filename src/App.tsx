@@ -1,0 +1,180 @@
+import { useState } from 'react';
+import useSWR, {mutate} from 'swr';
+import { Card, Button, Container, Row, Col, Form, Navbar } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+
+
+// Fetcher function for SWR
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
+
+interface Question {
+  id: number; // Added ID field to represent question IDs
+  question: string;
+  answer: string;
+}
+
+function truncateText(text: string, maxLength: number): string {
+  if (text.length <= maxLength) return text;
+  return text.slice(0, text.lastIndexOf(' ', maxLength)) + '...';
+}
+
+function App() {
+  const { data, error, isLoading } = useSWR('https://localhost:7247/api/Faqs', fetcher);
+  const [filter, setFilter] = useState('');
+  const [idFilter, setIdFilter] = useState(''); // State for ID search
+
+  // Ensure `questions` is defined as the data fetched from SWR
+  const questions: Question[] = data || [];
+
+  // Filter by general text
+  const filterQuestions = (questions: Question[], filterText: string): Question[] => {
+    const lowercasedFilter = filterText.toLowerCase();
+    return questions.filter(
+      (qa) =>
+        qa.question.toLowerCase().includes(lowercasedFilter) ||
+        qa.answer.toLowerCase().includes(lowercasedFilter)
+    );
+  };
+
+  // Filter by ID
+  const getQuestionById = (questions: Question[], id: string): Question | null => {
+    const numericId = parseInt(id, 10);
+    if (isNaN(numericId)) return null;
+    return questions.find((qa) => qa.id === numericId) || null;
+  };
+
+  // Apply filters
+  const filteredQuestions = filterQuestions(questions, filter);
+  const questionById = getQuestionById(questions, idFilter);
+
+  if (error) return <div>Failed to load</div>;
+  if (isLoading) return <div>Loading...</div>;
+
+  // Delete a question
+  const deleteQuestion = async (id: number) => {
+    try {
+      await fetch(`https://localhost:7247/api/Faqs/${id}`, {
+        method: 'DELETE',
+      });
+      mutate('https://localhost:7247/api/Faqs/'); // Revalidate the list of questions
+    } catch (err) {
+      console.error('Error deleting question:', err);
+    }
+  };
+
+  return (
+    <>
+      {/* Frequent Questions Card */}
+      <div className="centered-container">
+        <Card style={{ width: '70rem' }}></Card>
+        <Card className="center-card text-center">
+          <Card.Body>
+            <Card.Title style={{ fontWeight: 'normal' }}>Frequent Questions</Card.Title>
+            <Card.Text>Simple answers to your most common questions</Card.Text>
+            <div className="d-flex justify-content-between gap-2">
+              <Button variant="success" className="custom-btn">
+                Getting started guide
+              </Button>
+              <Button variant="primary" className="custom-btn">
+                Email support
+              </Button>
+            </div>
+          </Card.Body>
+        </Card>
+      </div>
+
+      {/* Search Bar */}
+      <Navbar expand="lg" className="bg-body-tertiary" style={{ marginTop: '20px', padding: '10px' }}>
+        <Form className="d-flex" style={{ width: '100%' }}>
+          <Form.Control
+            type="search"
+            placeholder="Search..."
+            className="me-2"
+            aria-label="Search"
+            value={filter}
+            onChange={(e) => setFilter(e.target.value)}
+          />
+        </Form>
+      </Navbar>
+
+      {/* New ID Search Bar */}
+      <Navbar expand="lg" className="bg-body-tertiary" style={{ marginTop: '10px', padding: '10px' }}>
+        <Form className="d-flex" style={{ width: '100%' }}>
+          <Form.Control
+            type="search"
+            placeholder="Search by question ID..."
+            className="me-2"
+            aria-label="Search by ID"
+            value={idFilter}
+            onChange={(e) => setIdFilter(e.target.value)}
+          />
+        </Form>
+      </Navbar>
+
+      {/* Render Question by ID */}
+      {idFilter && questionById ? (
+        <Container style={{ marginTop: '20px' }}>
+          <Card className="mb-3">
+            <Card.Body>
+              <Card.Title>Question #{questionById.id}</Card.Title>
+              <Card.Text>
+                <strong>Q:</strong> {questionById.question}
+                <br />
+                <strong>A:</strong> {questionById.answer}
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Container>
+      ) : idFilter ? (
+        <Container style={{ marginTop: '20px', color: 'red' }}>
+          No question found for this ID.
+        </Container>
+      ) : null}
+
+      {/*  Content section */}
+      <Container className="my-5">
+        <Row>
+          <Col md={6}>
+            {filteredQuestions
+              .filter((_, index) => index % 2 === 0)
+              .map((qa, index) => (
+                <div key={index} style={{ marginBottom: '1.5rem' }}>
+                  <div style={{ color: 'blue', fontWeight: 'bold' }}>{qa.question}</div>
+                  <div style={{ color: 'black' }}>{truncateText(qa.answer, 200)}</div>
+                  <Button
+                      variant="danger"
+                      size="sm"
+                      onClick={() => deleteQuestion(qa.id)}
+                      style={{ marginTop: '10px' }}
+                    >
+                      Delete
+                    </Button>
+                </div>
+              ))}
+          </Col>
+          <Col md={6}>
+            {filteredQuestions
+              .filter((_, index) => index % 2 !== 0)
+              .map((qa, index) => (
+                <div key={index} style={{ marginBottom: '1.5rem' }}>
+                  <div style={{ color: 'blue', fontWeight: 'bold' }}>{qa.question}</div>
+                  <div style={{ color: 'black' }}>{truncateText(qa.answer, 200)}</div>
+                  <Button
+                      variant="danger"
+                      size="sm"
+                      onClick={() => deleteQuestion(qa.id)}
+                      style={{ marginTop: '10px' }}
+                    >
+                      Delete
+                    </Button>
+                </div>
+              ))}
+          </Col>
+        </Row>
+      </Container>
+    </>
+  );
+}
+
+export default App;
