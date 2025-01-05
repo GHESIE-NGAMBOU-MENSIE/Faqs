@@ -1,0 +1,16 @@
+﻿<Project>
+  <ItemGroup>
+    <StaticWebAssetEndpoint Include="_content/task/faqs.3llelafs6b.json">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\faqs.json'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"3llelafs6b"},{"Name":"integrity","Value":"sha256-x/ExjwLMw8cQrh9ERxT98O2asJbvazKFU2oqYIgzSbc="},{"Name":"label","Value":"_content/task/faqs.json"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"13466"},{"Name":"Content-Type","Value":"application/json"},{"Name":"ETag","Value":"\u0022x/ExjwLMw8cQrh9ERxT98O2asJbvazKFU2oqYIgzSbc=\u0022"},{"Name":"Last-Modified","Value":"Sat, 04 Jan 2025 17:53:11 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/task/faqs.json">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\faqs.json'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-x/ExjwLMw8cQrh9ERxT98O2asJbvazKFU2oqYIgzSbc="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"13466"},{"Name":"Content-Type","Value":"application/json"},{"Name":"ETag","Value":"\u0022x/ExjwLMw8cQrh9ERxT98O2asJbvazKFU2oqYIgzSbc=\u0022"},{"Name":"Last-Modified","Value":"Sat, 04 Jan 2025 17:53:11 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+  </ItemGroup>
+</Project>

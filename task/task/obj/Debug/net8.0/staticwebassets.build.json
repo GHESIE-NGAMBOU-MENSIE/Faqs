@@ -1,0 +1,125 @@
+{
+  "Version": 1,
+  "Hash": "nXRcS/d60esFTAWLCAjJd/plDwds0XHDHxDjlS8ok0A=",
+  "Source": "task",
+  "BasePath": "_content/task",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "task\\wwwroot",
+      "Source": "task",
+      "ContentRoot": "C:\\Users\\ghesi\\source\\repos\\task\\task\\wwwroot\\",
+      "BasePath": "_content/task",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\ghesi\\source\\repos\\task\\task\\wwwroot\\faqs.json",
+      "SourceId": "task",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ghesi\\source\\repos\\task\\task\\wwwroot\\",
+      "BasePath": "_content/task",
+      "RelativePath": "faqs#[.{fingerprint}]?.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "3llelafs6b",
+      "Integrity": "x/ExjwLMw8cQrh9ERxT98O2asJbvazKFU2oqYIgzSbc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\faqs.json"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "faqs.3llelafs6b.json",
+      "AssetFile": "C:\\Users\\ghesi\\source\\repos\\task\\task\\wwwroot\\faqs.json",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "13466"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/json"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"x/ExjwLMw8cQrh9ERxT98O2asJbvazKFU2oqYIgzSbc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 04 Jan 2025 17:53:11 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "3llelafs6b"
+        },
+        {
+          "Name": "label",
+          "Value": "faqs.json"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-x/ExjwLMw8cQrh9ERxT98O2asJbvazKFU2oqYIgzSbc="
+        }
+      ]
+    },
+    {
+      "Route": "faqs.json",
+      "AssetFile": "C:\\Users\\ghesi\\source\\repos\\task\\task\\wwwroot\\faqs.json",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "13466"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/json"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"x/ExjwLMw8cQrh9ERxT98O2asJbvazKFU2oqYIgzSbc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 04 Jan 2025 17:53:11 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-x/ExjwLMw8cQrh9ERxT98O2asJbvazKFU2oqYIgzSbc="
+        }
+      ]
+    }
+  ]
+}

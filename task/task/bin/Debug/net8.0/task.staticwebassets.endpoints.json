@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "ManifestType": "Build",
+  "Endpoints": [
+    {
+      "Route": "faqs.3llelafs6b.json",
+      "AssetFile": "faqs.json",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "13466"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/json"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"x/ExjwLMw8cQrh9ERxT98O2asJbvazKFU2oqYIgzSbc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 04 Jan 2025 17:53:11 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "3llelafs6b"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-x/ExjwLMw8cQrh9ERxT98O2asJbvazKFU2oqYIgzSbc="
+        },
+        {
+          "Name": "label",
+          "Value": "faqs.json"
+        }
+      ]
+    },
+    {
+      "Route": "faqs.json",
+      "AssetFile": "faqs.json",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "13466"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/json"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"x/ExjwLMw8cQrh9ERxT98O2asJbvazKFU2oqYIgzSbc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 04 Jan 2025 17:53:11 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-x/ExjwLMw8cQrh9ERxT98O2asJbvazKFU2oqYIgzSbc="
+        }
+      ]
+    }
+  ]
+}

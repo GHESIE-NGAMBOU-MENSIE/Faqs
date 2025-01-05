@@ -1,0 +1,104 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\ghesi\\source\\repos\\task\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{541A9CA5-C9C1-49CE-81EF-C222F8FBF730}|task\\task.csproj|c:\\users\\ghesi\\source\\repos\\task\\task\\controllers\\faqscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{541A9CA5-C9C1-49CE-81EF-C222F8FBF730}|task\\task.csproj|solutionrelative:task\\controllers\\faqscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{541A9CA5-C9C1-49CE-81EF-C222F8FBF730}|task\\task.csproj|c:\\users\\ghesi\\source\\repos\\task\\task\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{541A9CA5-C9C1-49CE-81EF-C222F8FBF730}|task\\task.csproj|solutionrelative:task\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{541A9CA5-C9C1-49CE-81EF-C222F8FBF730}|task\\task.csproj|c:\\users\\ghesi\\source\\repos\\task\\task\\wwwroot\\faqs.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{541A9CA5-C9C1-49CE-81EF-C222F8FBF730}|task\\task.csproj|solutionrelative:task\\wwwroot\\faqs.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{541A9CA5-C9C1-49CE-81EF-C222F8FBF730}|task\\task.csproj|c:\\users\\ghesi\\source\\repos\\task\\task\\models\\faq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{541A9CA5-C9C1-49CE-81EF-C222F8FBF730}|task\\task.csproj|solutionrelative:task\\models\\faq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{541A9CA5-C9C1-49CE-81EF-C222F8FBF730}|task\\task.csproj|c:\\users\\ghesi\\source\\repos\\task\\task\\wwwroot\\faqs.json||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{541A9CA5-C9C1-49CE-81EF-C222F8FBF730}|task\\task.csproj|solutionrelative:task\\wwwroot\\faqs.json||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "faqs.json",
+              "DocumentMoniker": "C:\\Users\\ghesi\\source\\repos\\task\\task\\wwwroot\\faqs.json",
+              "RelativeDocumentMoniker": "task\\wwwroot\\faqs.json",
+              "ToolTip": "C:\\Users\\ghesi\\source\\repos\\task\\task\\wwwroot\\faqs.json",
+              "RelativeToolTip": "task\\wwwroot\\faqs.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAQAQAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-01-03T09:46:05.572Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\ghesi\\source\\repos\\task\\task\\Program.cs",
+              "RelativeDocumentMoniker": "task\\Program.cs",
+              "ToolTip": "C:\\Users\\ghesi\\source\\repos\\task\\task\\Program.cs",
+              "RelativeToolTip": "task\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-02T17:59:35.275Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FaqsController.cs",
+              "DocumentMoniker": "C:\\Users\\ghesi\\source\\repos\\task\\task\\Controllers\\FaqsController.cs",
+              "RelativeDocumentMoniker": "task\\Controllers\\FaqsController.cs",
+              "ToolTip": "C:\\Users\\ghesi\\source\\repos\\task\\task\\Controllers\\FaqsController.cs",
+              "RelativeToolTip": "task\\Controllers\\FaqsController.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAUwD0AAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-02T17:52:37.985Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Faq.cs",
+              "DocumentMoniker": "C:\\Users\\ghesi\\source\\repos\\task\\task\\Models\\Faq.cs",
+              "RelativeDocumentMoniker": "task\\Models\\Faq.cs",
+              "ToolTip": "C:\\Users\\ghesi\\source\\repos\\task\\task\\Models\\Faq.cs",
+              "RelativeToolTip": "task\\Models\\Faq.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-02T17:46:00.519Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "faqs.json",
+              "DocumentMoniker": "C:\\Users\\ghesi\\source\\repos\\task\\task\\wwwroot\\faqs.json",
+              "RelativeDocumentMoniker": "task\\wwwroot\\faqs.json",
+              "ToolTip": "C:\\Users\\ghesi\\source\\repos\\task\\task\\wwwroot\\faqs.json",
+              "RelativeToolTip": "task\\wwwroot\\faqs.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-01-02T18:00:36.108Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
