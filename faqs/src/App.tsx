@@ -1,18 +1,14 @@
 import { useState } from 'react';
-import useSWR, {mutate} from 'swr';
-import { Card, Button, Container, Row, Col, Form, Navbar } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import useSWR from 'swr';
+import { Card, Button, Container, Row, Col, Form, Navbar , Modal} from 'react-bootstrap';
 import './App.css';
+import { Question } from './interface.tsx';
 
 
 // Fetcher function for SWR
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
-interface Question {
-  id: number; // Added ID field to represent question IDs
-  question: string;
-  answer: string;
-}
+
 
 function truncateText(text: string, maxLength: number): string {
   if (text.length <= maxLength) return text;
@@ -20,9 +16,20 @@ function truncateText(text: string, maxLength: number): string {
 }
 
 function App() {
-  const { data, error, isLoading } = useSWR('https://localhost:7247/api/Faqs', fetcher);
+  const { data, error, isLoading , mutate} = useSWR('https://localhost:7247/api/Faqs', fetcher);
   const [filter, setFilter] = useState('');
   const [idFilter, setIdFilter] = useState(''); // State for ID search
+  const [answer, setAnswer] = useState('');
+  const [question, setFaq] = useState('');
+  const [show, setShow] = useState(false);
+  const [disabled, setDisable] = useState(false);
+  
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+
+
 
   // Ensure `questions` is defined as the data fetched from SWR
   const questions: Question[] = data || [];
@@ -62,6 +69,53 @@ function App() {
       console.error('Error deleting question:', err);
     }
   };
+
+    // add a new question
+    const addFaq = async (question: string, answer: string) => {
+      try {
+        const  id:number= 1000
+        const q: Question = { id,question, answer };
+        setDisable(true)
+        const response = await fetch(`https://localhost:7247/api/Faqs/`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(q), // Correctly stringify the payload
+          
+        });
+    
+        if (!response.ok) {
+          throw new Error(`Failed to post question: ${response.statusText}`);
+        }
+    
+        // Revalidate the list of questions
+        mutate();
+        
+        handleClose()
+
+        resetForm()
+
+        
+        
+      } catch (err) {
+        console.error('Error posting question:', err);
+        
+      }
+      finally{
+        setDisable(false);
+      }
+    };
+
+    const resetForm = async () => {
+      
+      setFaq('')
+      setAnswer('')
+
+
+
+    }
+  
 
   return (
     <>
@@ -111,6 +165,54 @@ function App() {
           />
         </Form>
       </Navbar>
+
+            {/*modal  to add a new question */}
+
+            <Button variant="primary" onClick={handleShow}>
+        Add new question
+      </Button>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Add new question</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+          <Form.Group
+              className="mb-3"
+              controlId="question"
+            >
+              <Form.Label>Question</Form.Label>
+              <Form.Control as="textarea" rows={3}                                
+              value={question}
+              onChange={(e) => setFaq(e.target.value)} />
+            </Form.Group>
+            
+            <Form.Group
+              className="mb-3"
+              controlId="Answer"
+            >
+              <Form.Label>Answer</Form.Label>
+              <Form.Control as="textarea" rows={3}
+              value={answer}
+              onChange={(e) => setAnswer(e.target.value)} />
+              
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary"   onClick={() => addFaq(question, answer, )} disabled = {disabled}>
+        
+          
+            Save 
+          </Button>
+          
+        </Modal.Footer>
+      </Modal>
+
 
       {/* Render Question by ID */}
       {idFilter && questionById ? (
