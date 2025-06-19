@@ -16,7 +16,10 @@ function truncateText(text: string, maxLength: number): string {
 }
 
 function App() {
-  const { data, error, isLoading , mutate} = useSWR('https://localhost:7247/api/Faqs', fetcher);
+  const API_URL = 'http://localhost:5180/api/Faqs';
+
+const { data, error, isLoading, mutate } = useSWR(`${API_URL}/GetAll`, fetcher);
+
   const [filter, setFilter] = useState('');
   const [idFilter, setIdFilter] = useState(''); // State for ID search
   const [answer, setAnswer] = useState('');
@@ -58,13 +61,14 @@ function App() {
   if (error) return <div>Failed to load</div>;
   if (isLoading) return <div>Loading...</div>;
 
+
   // Delete a question
   const deleteQuestion = async (id: number) => {
     try {
-      await fetch(`https://localhost:7247/api/Faqs/${id}`, {
+      await fetch(`http://localhost:5180/api/Faqs/DeleteById/${id}`, {
         method: 'DELETE',
       });
-      mutate('https://localhost:7247/api/Faqs/'); // Revalidate the list of questions
+      mutate(); // Revalidate the list of questions
     } catch (err) {
       console.error('Error deleting question:', err);
     }
@@ -73,10 +77,9 @@ function App() {
     // add a new question
     const addFaq = async (question: string, answer: string) => {
       try {
-        const  id:number= 1000
-        const q: Question = { id,question, answer };
+        const q= {question, answer };
         setDisable(true)
-        const response = await fetch(`https://localhost:7247/api/Faqs/`, {
+        const response = await fetch(`http://localhost:5180/api/Faqs/Create`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
